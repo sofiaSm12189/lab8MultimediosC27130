@@ -1,0 +1,437 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #1f1f1f 0%, #0d0d0d 60%);
+
+  color: white;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  min-height: 100vh;
+
+  padding: 30px;
+}
+
+.content {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.search-form {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form input {
+  flex: 1;
+
+  padding: 16px 20px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 16px;
+
+  font-size: 16px;
+
+  background: #1f1f1f;
+  color: white;
+
+  transition: 0.3s;
+}
+
+.search-form input:focus {
+  box-shadow:
+    0 0 0 3px #ff572288,
+    0 0 25px #ff572255;
+
+  transform: scale(1.01);
+}
+
+.search-form button {
+  border: none;
+
+  padding: 16px 28px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #ff5722, #ff784e);
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.search-form button:hover {
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow: 0 10px 20px #ff572255;
+}
+
+.search-form button:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.results {
+  position: absolute;
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  background: #181818;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  z-index: 100;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 15px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.result-item:hover {
+  background: #2b2b2b;
+
+  transform: translateX(6px);
+}
+
+.result-item img {
+  width: 55px;
+  height: 80px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+.result-item span {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+
+  animation: fadeIn 0.5s ease;
+}
+
+.poster {
+  width: 250px;
+
+  border-radius: 24px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  transition: 0.4s;
+}
+
+.poster:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+header h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* =========================
+   TEMPORADAS
+========================= */
+
+.episodes {
+  display: grid;
+  gap: 30px;
+}
+
+.season {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  padding: 20px;
+
+  border-radius: 24px;
+
+  backdrop-filter: blur(5px);
+
+  transition: 0.3s;
+}
+
+.season:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.season-header,
+.episode {
+  --size: 3rem;
+
+  width: var(--size);
+  height: var(--size);
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 18px;
+
+  font-weight: bold;
+
+  transition: 0.25s;
+}
+
+.season-header {
+  background: white;
+  color: #111;
+
+  font-size: 14px;
+}
+
+.episode {
+  color: white;
+
+  cursor: pointer;
+}
+
+.episode:hover {
+  transform: scale(1.12) translateY(-2px);
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   COLORES RATINGS
+========================= */
+
+.rating-0 {
+  background: #2b0a27;
+}
+.rating-1 {
+  background: #451010;
+}
+.rating-2 {
+  background: #922323;
+}
+.rating-3 {
+  background: #c53030;
+}
+.rating-4 {
+  background: #d94c4c;
+}
+.rating-5 {
+  background: #dd6b20;
+}
+.rating-6 {
+  background: #d69e2e;
+}
+.rating-7 {
+  background: #f6e05e;
+  color: #333;
+}
+.rating-8 {
+  background: #48bb78;
+}
+.rating-9 {
+  background: #2f855a;
+}
+.rating-10 {
+  background: #1b5e20;
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+  body {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 40px;
+  }
+
+  .poster {
+    width: 220px;
+  }
+
+  .season {
+    padding: 15px;
+  }
+
+  .season-header,
+  .episode {
+    --size: 2.7rem;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  /* Buscador */
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  /* Header */
+  header h1 {
+    font-size: 30px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  .poster {
+    width: 180px;
+  }
+
+  /* Resultados búsqueda */
+  .result-item {
+    padding: 12px;
+  }
+
+  .result-item img {
+    width: 45px;
+    height: 65px;
+  }
+
+  .result-item span {
+    font-size: 15px;
+  }
+
+  /* Episodios */
+  .episodes {
+    gap: 20px;
+  }
+
+  .season {
+    justify-content: center;
+    padding: 15px 10px;
+    gap: 8px;
+  }
+
+  .season-header,
+  .episode {
+    --size: 2.3rem;
+
+    font-size: 12px;
+
+    border-radius: 14px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 400px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .poster {
+    width: 150px;
+  }
+
+  .season-header,
+  .episode {
+    --size: 2rem;
+  }
+
+  .search-form input,
+  .search-form button {
+    padding: 14px;
+  }
+}
